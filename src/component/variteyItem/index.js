@@ -1,9 +1,9 @@
+import React from "react";
 import Image from "next/image";
 import "../../app/globals.css";
 import CapComponent from "../cap";
 import PumpComponent from "../pump";
 import AdonisBottleImage from "@/images/adonisbottle.svg";
-import React, { useState, useEffect } from "react";
 
 const VarietyItem = ({ bottleList, pumpList, capList }) => {
   const Volume = [
@@ -14,25 +14,15 @@ const VarietyItem = ({ bottleList, pumpList, capList }) => {
     { value: "100ML" },
     { value: "200ML" },
   ];
-  // const renderComponent = () => {
-  //   if (capList) {
-  //     return <CapComponent cap={capList} />;
-  //   } else if (pumpList) {
-  //     return <PumpComponent pump={pumpList} />;
-  //   } else {
-  //     return null;
-  //   }
-  // };
-  const [activeComponent, setActiveComponent] = useState(null);
-
-  useEffect(() => {
-    // Set active component based on the provided list
+  const renderComponent = () => {
     if (capList) {
-      setActiveComponent("cap");
+      return <CapComponent cap={capList} />;
     } else if (pumpList) {
-      setActiveComponent("pump");
+      return <PumpComponent pump={pumpList} />;
+    } else {
+      return null;
     }
-  }, [capList, pumpList]);
+  };
   return (
     <div className="main-cont">
       <div className="top-volume">
@@ -46,11 +36,7 @@ const VarietyItem = ({ bottleList, pumpList, capList }) => {
         </div>
       </div>
 
-      {/* {renderComponent()} */}
-      {activeComponent === "cap" && capList && <CapComponent cap={capList} />}
-      {activeComponent === "pump" && pumpList && (
-        <PumpComponent pump={pumpList} />
-      )}
+      {renderComponent()}
 
       <div className="image-view" style={{ paddingTop: "50px" }}>
         <Image
