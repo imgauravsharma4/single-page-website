@@ -1,6 +1,6 @@
 import { Icon as IconifyIcon } from "@iconify/react";
 
-const FilterComponent = ({ onItemClick }) => {
+const FilterComponent = ({ filterList, setFilterShow, filterShow }) => {
   const Shapes = [
     { tag: "Bottle" },
     { tag: "Pumps" },
@@ -29,6 +29,7 @@ const FilterComponent = ({ onItemClick }) => {
             height={"20"}
             className={` `}
             color={""}
+            onClick={() => setFilterShow(false)}
           />
         </div>
         <div className="w-full filter-box">
@@ -40,7 +41,7 @@ const FilterComponent = ({ onItemClick }) => {
               <div
                 className="tags"
                 key={index}
-                onClick={() => onItemClick(item.tag)}
+                onClick={() => filterList(item.tag)}
               >
                 {item.tag}
               </div>
@@ -51,13 +52,16 @@ const FilterComponent = ({ onItemClick }) => {
           <div className="tags-top">
             <h3>Colors</h3>
           </div>
-          <div className="tags-outer color-tag-outer">
+          <div className="tags-outer color-tag-outer ">
             {Colors.map((item, index) => (
               <div
                 className={`color-tag `}
-                style={{ backgroundColor: `${item.bgColor}` }}
+                style={{
+                  backgroundColor: `${item.bgColor}`,
+                  cursor: "pointer",
+                }}
                 key={index}
-                // onClick={() => onItemClick(item.tag)}
+                onClick={() => filterList(item?.bgColor)}
               ></div>
             ))}
           </div>

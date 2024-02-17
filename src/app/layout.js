@@ -13,8 +13,6 @@ import ParentComponent from "@/component/parent";
 // };
 
 export default function RootLayout({ children }) {
-  const [state, setState] = useState("state from root layout");
-  console.log("hello state", state);
   return (
     <html lang="en">
       <body>

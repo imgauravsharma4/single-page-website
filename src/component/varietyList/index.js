@@ -5,7 +5,7 @@ import MuiImage from "@/images/mui.svg";
 
 const VarietyList = ({ varietyList, onItemClick, onFilter }) => {
   return (
-    <div className="variety-list" style={{ cursor: "pointer"}}>
+    <div className="variety-list" style={{ cursor: "pointer" }}>
       <div className="variety-top" onClick={() => onFilter(true)}>
         <Image src={MuiImage} alt={MuiImage} />
       </div>
