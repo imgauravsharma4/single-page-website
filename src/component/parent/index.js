@@ -109,18 +109,17 @@ const ParentComponent = () => {
   };
 
   const handleItemClick = (item) => {
-    console.log("item", item);
     switch (item.type) {
       case "bottle":
         setBottleList(item);
         break;
       case "cap":
-        console.log("cap");
         setCapList(item);
+        setPumpList(null);
         break;
       case "pump":
-        console.log("pump");
         setPumpList(item);
+        setCapList(null);
         break;
       default:
         // setList([]);

@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 const PumpComponent = ({ pump }) => {
-  console.log("pump", pump);
   return (
     <>
       <div className="image-view">

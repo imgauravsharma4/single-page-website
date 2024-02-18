@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 
 const CapComponent = ({ cap }) => {
-  console.log("cap", cap);
   return (
     <>
       <div className="image-view">
